@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+
+<style>
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: grey;
+  text-align: center;
+  font-family: verdana;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+  color: grey;
+  text-align: center;
+}
+
+button {
+  background-color: grey; 
+  border: none;
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  align: center;
+}
+
+button:hover {
+  background-color: green; 
+  color: white;
+}
+
+div {
+  text-align: center;
+  
+}
+ 
+input {
+width: 20%;
+}
+</style>
+
+
+<body>
+<div>
+<h1>Date personale</h1>
+<br>
+<p>Indroduceti cnp: </p>
+
+<input id="numb">
+<br><br>
+<button type="button" onclick="myFunction()">Accept</button>
+<p id="demo"></p>
+<br>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+</div>
+
+<script>
+function myFunction() {
+  let x = document.getElementById("numb").value;
+  let text,y,zi,luna,an,r;
+  if (x.toString().length === 13) {
+     y=1000000;
+	 r = x % y;
+    x=(x - r) / y;
+	 zi= x%100;
+	y=100;
+	r = x % y;
+	x=(x - r) / y;
+	 luna= x%100;
+	 r = x % y;
+	x=(x - r) / y;
+	y=x%100;
+	   if(x%100 > 10){ an=1900+y;}
+			else{ an=2000+y;}
+	if(zi<10 && luna<10)
+	{text = "Data dansterii: " + "0" + zi + " . " + "0" + luna + " . " + an ;}
+	else if(zi<10 && luna>9)
+	{text = "Data dansterii: " + "0" + zi + " . " + luna + " . " + an ;}
+	else if(zi>9 && luna<9)
+	{text = "Data dansterii: " + zi + " . " + "0" + luna + " . " + an ;}
+	else {text = "Data dansterii: " + zi + " . " + luna + " . " + an ;}
+  } else {
+    text = "Cnp nu este valid";
+
+  }
+  document.getElementById("demo").innerHTML = text;
+  if(text === "Cnp nu este valid"){x=0;}
+  else{
+  let i=0;
+  document.getElementById("demo1").innerHTML = "Varsta: ";
+  setInterval(() => {
+  if (an<=2022){
+  document.getElementById("demo2").innerHTML =  i++;
+  an++;}
+  }, 100)
+  document.getElementById("demo3").innerHTML = " ani";
+}
+}
+</script>
+</body>
+
+</html>
