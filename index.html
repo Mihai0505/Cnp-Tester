@@ -101,7 +101,7 @@ function myFunction() {
   let i=0;
   document.getElementById("demo1").innerHTML = "Varsta: ";
   setInterval(() => {
-  if (an<=2024){
+  if (an<=new Date().getFullYear()){
   document.getElementById("demo2").innerHTML =  i++;
   an++;}
   }, 100)
